@@ -4,10 +4,10 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [{
-  path: '**',
+  path: '',
   component: IndexComponent,
   children: [{
-      path: '**',
+      path: 'about',
       loadChildren: () => import('./../about/about.module').then(m => m.AboutModule),
     }
   ]
