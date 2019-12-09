@@ -1,4 +1,3 @@
-import { ImportLocation } from './../../../resource/enum/import-location';
 import { IndexComponent } from './index.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -10,7 +9,7 @@ const routes: Routes = [{
   component: IndexComponent,
   children: [{
       path: Path.ABOUT,
-      loadChildren: () => import(ImportLocation.ABOUT_MODULE).then(m => m.AboutModule),
+      loadChildren: () => import('./../about/about.module').then(m => m.AboutModule),
     }
   ]
 }];
