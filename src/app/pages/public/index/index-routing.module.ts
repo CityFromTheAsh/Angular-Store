@@ -1,13 +1,14 @@
 import { IndexComponent } from './index.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Path } from 'src/app/resource/enum/path';
 
 
 const routes: Routes = [{
-  path: '',
+  path: Path.PUBLIC,
   component: IndexComponent,
   children: [{
-      path: 'about',
+      path: Path.ABOUT,
       loadChildren: () => import('./../about/about.module').then(m => m.AboutModule),
     }
   ]

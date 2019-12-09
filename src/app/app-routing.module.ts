@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Path } from './resource/enum/path';
 
 
 const routes: Routes = [{
-  path: '',
+  path: Path.EMPTY,
   loadChildren: () => import('./pages/public/index/index.module').then(m => m.IndexModule)
 }];
 
