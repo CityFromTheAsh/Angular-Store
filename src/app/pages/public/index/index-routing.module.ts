@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { Path } from 'src/app/resource/enum/path';
 
+const pathMatch = 'full';
 
 const routes: Routes = [{
   path: Path.PUBLIC,
@@ -12,7 +13,12 @@ const routes: Routes = [{
       loadChildren: () => import('./../about/about.module').then(m => m.AboutModule),
     }
   ]
-}];
+}, {
+    path: Path.EMPTY,
+    redirectTo: Path.PUBLIC,
+    pathMatch
+}
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
