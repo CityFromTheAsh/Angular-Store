@@ -1,0 +1,16 @@
+mat-toolbar-row.toolbar-row{
+    display: inline-flex;
+    justify-content: space-between;
+    button.action{
+        margin: 5px;
+    }
+    span.navigation{
+        cursor: pointer;
+        button{
+            mat-select{
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+}

@@ -1,11 +1,4 @@
 <div class="index-wrapper">
-    <mat-toolbar color="primary">
-        <mat-toolbar-row>
-            <span>Custom Toolbar</span>
-            <span class="example-spacer"></span>
-            <mat-icon class="example-icon" aria-hidden="false" aria-label="Example heart icon">favorite</mat-icon>
-            <mat-icon class="example-icon" aria-hidden="false" aria-label="Example delete icon">delete</mat-icon>
-        </mat-toolbar-row>
-    </mat-toolbar>
+    <app-responsive-toolbar [actions]='actions' (actionSelected)='navigateTo($event)'></app-responsive-toolbar>
     <router-outlet></router-outlet>
 </div>

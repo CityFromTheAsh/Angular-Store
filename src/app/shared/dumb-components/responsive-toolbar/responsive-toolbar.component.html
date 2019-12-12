@@ -1,1 +1,19 @@
-<p>responsive-toolbar works!</p>
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbar-row">
+        <span class="title">Simple store</span>
+        <span class="navigation" *ngIf='toolbarRowWidth <= 600'>
+            <button mat-icon-button>
+                <mat-icon class="example-icon" [matMenuTriggerFor]="menu" aria-hidden="false" aria-label="Actions">view_headline</mat-icon>
+                <mat-menu #menu="matMenu">
+                    <button (click)='selectAction(action.id)' mat-menu-item *ngFor='let action of actions'>
+                        <mat-icon>{{action.icon}}</mat-icon>
+                        <span>{{action.lable}}</span>
+                    </button>
+                </mat-menu>
+            </button>
+        </span>
+        <div class="navigation" *ngIf='toolbarRowWidth > 600'>
+            <button (click)='selectAction(action.id)' mat-button class="action" *ngFor='let action of actions'>{{action.lable}}</button>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

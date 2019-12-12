@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Path } from 'src/app/resource/enum/path';
+import { Component, OnInit, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
+
+export interface ToolbarAction {
+  id: number;
+  lable: string;
+  icon?: string;
+}
 
 @Component({
   selector: 'app-responsive-toolbar',
@@ -7,9 +14,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResponsiveToolbarComponent implements OnInit {
 
-  constructor() { }
+  toolbarRowWidth: number;
+  @Input() actions: ToolbarAction[];
 
+  @Output() actionSelected = new EventEmitter<number>();
+  constructor(private el: ElementRef) { }
+
+  @HostListener('window:resize', ['$event'])
+  resize(event) {
+    this.toolbarRowWidth = event.target.outerWidth;
+  }
   ngOnInit() {
+    this.toolbarRowWidth = this.el.nativeElement.offsetWidth;
   }
 
+  selectAction(id: number) {
+    this.actionSelected.emit(id);
+  }
 }
